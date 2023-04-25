@@ -1,40 +1,33 @@
 const { ethers } = require("ethers");
 require("dotenv").config();
-const IERC20 = require("@openzeppelin/contracts/build/contracts/ERC20.json");
 
-//Current send amount: 50 USDC
-const transferAmount = 50000000;
+const { V2_ROUTER, RPC, ETH } = require("./config"); // Import V2_ROUTER and RPC
+const { keys } = require("./config"); // Import keys as a separate object
 
-const handler = async function () {
+const provider = new ethers.providers.JsonRpcProvider(
+  "https://eth-goerli.g.alchemy.com/v2/L86T4ExZKmtSs0AWfbitM0mJ-YbNwzQn"
+);
+
+const keyArray = Object.entries(myObj).map(([key, value]) => {
+  return value;
+});
+
+const accountWallets = keyArray.map(
+  (privateKey) => new ethers.Wallet(privateKey, provider)
+);
+
+const transferAmount = ethers.utils.parseEther(ETH);
+
+(async function () {
   try {
-    console.log("== Starting transaction ==");
-
-    //Change to the right network provider (Currently Goerli Testnet)
-    const provider = new ethers.providers.JsonRpcProvider(
-      "https://eth-goerli.g.alchemy.com/v2/L86T4ExZKmtSs0AWfbitM0mJ-YbNwzQn"
-    );
-
-    const privateKeyArray = [
-      process.env.WALLET_1,
-      process.env.W_2,
-      process.env.W_3,
-      process.env.W_4,
-      process.env.W_5,
-      // Add more private keys here
-    ];
-
-    const accountWallets = privateKeyArray.map(
-      (privateKey) => new ethers.Wallet(privateKey, provider)
-    );
-
-    const ERC20 = new ethers.Contract(process.env.TOKEN_ADDRESS, IERC20.abi);
+    console.log("== Starting Transaction ==");
 
     for (let i = 1; i < accountWallets.length; i++) {
-      const transaction = await ERC20.connect(accountWallets[0]).transfer(
-        accountWallets[i].address,
-        transferAmount
-      );
-      console.log(`Transfer ${i} Succesful. Hash [${transaction.hash}]`);
+      const transaction = await accountWallets[0].sendTransaction({
+        to: accountWallets[i].address,
+        value: transferAmount,
+      });
+      console.log(`Transfer ${i} Successful. Hash [${transaction.hash}]`);
     }
 
     console.log(`== Transfers Complete! ==`);
@@ -44,6 +37,4 @@ const handler = async function () {
   } catch (err) {
     console.error(err);
   }
-};
-
-handler();
+})();
