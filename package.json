@@ -1,17 +1,15 @@
 {
-  "name": "airdrop-bot",
+  "name": "multi-sender",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sends Ether to multiple wallets",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "0xRomRom",
   "license": "ISC",
   "dependencies": {
     "@openzeppelin/contracts": "^4.8.1",
     "@uniswap/v2-periphery": "^1.1.0-beta.0",
-    "dotenv": "^16.0.3",
     "ethers": "^5.7.2"
   }
 }
