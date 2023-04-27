@@ -1,4 +1,4 @@
-// Network prover (Goerli in this example)
+// Network provider (Goerli in this example)
 exports.RPC =
   "https://eth-goerli.g.alchemy.com/v2/L86T4ExZKmtSs0AWfbitM0mJ-YbNwzQn";
 
