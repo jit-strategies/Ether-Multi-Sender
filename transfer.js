@@ -23,7 +23,7 @@ const accountWallets = keyArray.map(
 // Amount to transfer
 const transferAmount = ethers.utils.parseEther(ETH);
 
-// Transfer function§
+// Transfer function
 (async function () {
   try {
     console.log("== Starting Transaction ==");
