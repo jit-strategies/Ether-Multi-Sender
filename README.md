@@ -1,6 +1,7 @@
 ## Multi-Wallet Ether Transfer Script
 
-This script allows you to transfer a specified amount of Ether to multiple wallets in a single transaction. It uses the Alchemy API to connect to the Goerli test network and the ethers.js library to handle the transactions.
+This script allows you to transfer a specified amount of Ether to multiple wallets. 
+It uses the Alchemy API to connect to the Goerli test network and the ethers.js library to handle the transactions.
 
 The script requires a configuration file `config.js` that contains the following options:
 
