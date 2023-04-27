@@ -21,3 +21,5 @@ To use this script, simply:
 The script is especially useful for sending small amounts of Ether to multiple wallets for testing or airdrop purposes.
 
 **Disclaimer:** This script is intended for educational and testing purposes only. Use at your own risk and always double-check your configuration before running the script. If funsu is gonu, don't call me
+
+Created using node.js v14.6.0
