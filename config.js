@@ -1,4 +1,3 @@
-exports.V2_ROUTER = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D";
 exports.RPC =
   "https://eth-goerli.g.alchemy.com/v2/L86T4ExZKmtSs0AWfbitM0mJ-YbNwzQn";
 exports.ETH = "0.01";

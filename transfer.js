@@ -1,14 +1,12 @@
 const { ethers } = require("ethers");
 require("dotenv").config();
 
-const { V2_ROUTER, RPC, ETH } = require("./config"); // Import V2_ROUTER and RPC
+const { RPC, ETH } = require("./config"); // Import V2_ROUTER and RPC
 const { keys } = require("./config"); // Import keys as a separate object
 
-const provider = new ethers.providers.JsonRpcProvider(
-  "https://eth-goerli.g.alchemy.com/v2/L86T4ExZKmtSs0AWfbitM0mJ-YbNwzQn"
-);
+const provider = new ethers.providers.JsonRpcProvider(RPC);
 
-const keyArray = Object.entries(myObj).map(([key, value]) => {
+const keyArray = Object.entries(keys).map(([key, value]) => {
   return value;
 });
 
